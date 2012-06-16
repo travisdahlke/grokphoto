@@ -22,11 +22,16 @@ class ContactRequest < ActiveRecord::Base
   # ****
   # Logging
   after_create :log_create_event
+  after_create :send_email
   
   private #----
     
     def log_create_event
       Event.create(:description => "Contact request from: #{email}")
+    end
+
+    def send_email
+      NotificationsMailer.new_contact_request(self).deliver
     end
     
 end
