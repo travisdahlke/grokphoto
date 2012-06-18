@@ -1,6 +1,6 @@
 .jumbotron.masthead
   .inner
-    %h1= photographer.name
+    %h1= photographer.logo.present? ? image_tag(photographer.logo.url) : photographer.name
     %p= photographer.tagline
 .row
   .span12

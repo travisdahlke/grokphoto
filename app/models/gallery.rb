@@ -17,7 +17,7 @@ class Gallery < ActiveRecord::Base
 
   # ****
   # Mass-assignment protection
-  attr_accessible :name, :keywords, :description, :cover, :photos_attrs
+  attr_accessible :name, :keywords, :description, :cover, :retained_cover, :photos_attrs
   
   # Multi-file uploads
   def photos_attrs=(attrs)
